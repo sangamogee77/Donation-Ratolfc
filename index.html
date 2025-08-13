@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support Raitol FC</title>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap');
         
         body{background-color:#0d0d0d;color:#e0e0e0;font-family:'Poppins',sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;padding:20px;box-sizing:border-box;padding-bottom:70px}
-        .donation-container{background:linear-gradient(145deg,#1a1a1a,#111);padding:2.5rem 2rem;border-radius:20px;text-align:center;width:100%;max-width:420px;border:3px solid #00ffff;box-shadow:0 0 15px #00ffff,0 0 30px #00ffff,inset 0 0 10px #00ffff;animation:border-flicker 4s linear infinite;display:flex;flex-direction:column;align-items:center}
+        /* Made the main container wider */
+        .donation-container{background:linear-gradient(145deg,#1a1a1a,#111);padding:2.5rem 2rem;border-radius:20px;text-align:center;width:100%;max-width:550px;border:3px solid #00ffff;box-shadow:0 0 15px #00ffff,0 0 30px #00ffff,inset 0 0 10px #00ffff;animation:border-flicker 4s linear infinite;display:flex;flex-direction:column;align-items:center}
         .reveal-cover{cursor:pointer;text-align:center;width:100%}
         .reveal-cover-main-img{width:150px;height:auto;margin-bottom:1.5rem;border-radius:10px}
         .reveal-cover p{font-family:'Orbitron',sans-serif;font-size:1.5rem;color:#fff;text-shadow:0 0 8px #fff;animation:pulse 2s infinite;margin-bottom:2rem}
@@ -16,12 +18,14 @@
         .tiktok-logo{width:40px;height:auto;filter:invert(1)}
         .tiktok-follow .follow-text{font-size:1.1rem;color:#ccc;margin:0;font-weight:600}
         .tiktok-link{color:#00ff7f;text-decoration:none;font-size:1rem;transition:all .3s ease;cursor:pointer}
-        .tiktok-link:hover{color:#fff;text-shadow:0 0 8px #00ff7f}
+        /* Removed neon glow on hover */
+        .tiktok-link:hover{color:#fff;}
         .donation-content{display:none;width:100%;flex-direction:column;align-items:center}
         .header{display:flex;justify-content:center;align-items:center;gap:15px;margin-bottom:.5rem}
         .header .logo{width:50px;height:50px;border-radius:50%}
         .header h1{font-family:'Orbitron',sans-serif;font-size:2.2rem;margin:0;color:#ff00ff;text-transform:uppercase;animation:text-glow 1.5s ease-in-out infinite alternate}
-        .subtitle{font-size:1rem;color:#ccc;text-shadow:0 0 5px #00ff7f;margin-bottom:1.5rem;font-weight:400;line-height:1.5}
+        /* Removed neon glow */
+        .subtitle{font-size:1rem;color:#ccc;margin-bottom:1.5rem;font-weight:400;line-height:1.5}
         .main-image-wrapper{margin-bottom:2rem}
         .football-image{width:150px;height:150px;border-radius:50%;animation:spin 10s linear infinite}
         .merchant-details{background-color:#111;border-radius:10px;padding:1.2rem;border:1px dashed #555;font-size:1rem;width:100%;text-align:left;line-height:1.7; margin-bottom: 1.5rem;}
@@ -31,37 +35,105 @@
         .esewa-header{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px dashed #444}
         .esewa-logo{width:40px;height:auto;border-radius:5px}
         .esewa-title{font-family:'Orbitron',sans-serif;color:#60c560;font-size:1.2rem;margin:0;text-shadow:0 0 5px #60c560}
+        .section-divider{width:100%;margin-top:2rem;border-top:2px solid #ff00ff;padding-top:2rem}
+        .section-divider h2{font-family:'Orbitron',sans-serif;color:#00ff7f;margin-bottom:0.5rem;display:flex;align-items:center;justify-content:center;gap:10px}
+
+        /* MODAL STYLES */
+        .modal { display: none; position: fixed; z-index: 10001; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center; }
+        .modal-content { background: linear-gradient(145deg, #1a1a1a, #111); padding: 2.5rem; border-radius: 20px; text-align: center; width: 90%; max-width: 400px; border: 2px solid #ff00ff; box-shadow: 0 0 20px #ff00ff; position: relative; }
+        .modal-body { max-height: 60vh; overflow-y: auto; padding-right: 15px; }
+        .modal-content h2 { color: #00ff7f; margin-top: 0; }
+        .modal-content input { width: 100%; padding: 10px; margin-bottom: 1rem; background: #111; border: 1px solid #555; border-radius: 8px; color: #fff; box-sizing: border-box; text-align: center; }
+        .modal-content button { background: #00ff7f; color: #0d0d0d; border: none; padding: 10px 15px; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 1rem; }
+        .close-modal { position: absolute; top: 10px; right: 20px; color: #fff; font-size: 2rem; cursor: pointer; }
+        .team-editor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: center; margin-bottom: 10px; }
+        .team-editor-grid label { text-align: left; color: #00ffff; font-family: 'Orbitron'; }
+        .team-editor-grid input { margin-bottom: 0; }
+        hr.modal-divider { border: 0; border-top: 1px dashed #555; margin: 15px 0; }
+
+        /* POST & COMMENT STYLES */
+        #postsContainer, #comments-container{width:100%;text-align:left;margin-top:1rem;max-height:500px;overflow-y:auto;padding-right:10px}
+        #updates-section-body, #comment-section-body { display: none; } /* Initially hidden */
+        .comment {background:#222;padding:1rem;border-radius:10px;margin-bottom:1rem; border-left:3px solid #00ff7f; position: relative;}
+        .delete-comment-btn { position: absolute; top: 10px; right: 10px; background: #ff3333; color: white; border: none; border-radius: 5px; cursor: pointer; padding: 3px 6px; font-size: 0.7rem; }
+        .admin-post { background:#222; padding: 1rem; border-radius: 10px; margin-bottom: 1rem; position: relative; border: 1px solid #ff00ff; }
+        .admin-post-title { font-family: 'Orbitron', sans-serif; color: #ff00ff; font-size: 1.2rem; margin-bottom: 0.8rem; text-align: left; }
+        .admin-post-media { max-width: 100%; border-radius: 8px; margin-bottom: 0.8rem; }
+        .admin-post-caption { color: #e0e0e0; line-height: 1.5; margin-bottom: 1rem; text-align: left; white-space: pre-wrap; }
+        .post-actions { display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem; }
+        .like-btn { font-size: 1.5rem; cursor: pointer; color: #aaa; transition: color 0.2s, transform 0.2s; }
+        .like-btn.liked { color: #ff0055; transform: scale(1.1); }
+        .like-count { font-size: 1rem; color: #ccc; }
+        .admin-post-by { font-size: 0.8rem; color: #00ffff; text-align: left; margin-top: 10px; }
+        .delete-post-btn { position: absolute; top: 10px; right: 10px; background: #ff3333; color: white; border: none; border-radius: 5px; cursor: pointer; padding: 5px 8px; font-size: 0.8rem; }
+        .comment p {margin:0;color:#fff;line-height:1.5;word-wrap:break-word}
+        .comment .comment-author {font-weight:600;color:#00ffff;margin-bottom:.3rem}
+        .comment-form{width:100%;margin-top:1rem}
+        .comment-form input,.comment-form textarea{width:100%;padding:10px;margin-bottom:10px;background:#111;border:1px solid #555;border-radius:8px;color:#fff;font-family:'Poppins',sans-serif;box-sizing:border-box}
+        .comment-form button{background:#00ff7f;color:#0d0d0d;border:none;padding:10px 15px;border-radius:8px;font-weight:600;cursor:pointer;float:right;transition:background-color .3s}
+        .comment-form button:hover{background-color:#00e06e}
+
+        /* BUTTON STYLES */
+        .admin-panel-button, .official-updates-button, .admin-action-button, .comment-section-button { 
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background-color: #333; padding: 10px 15px; border-radius: 10px; 
+            font-family: 'Orbitron', sans-serif; border: 2px solid; width: 100%;
+            cursor: pointer; font-size: 1.1rem;
+        }
+        .admin-panel-button span:first-child, .official-updates-button span:first-child, .comment-section-button span:first-child { font-size: 1.2rem; }
+        .admin-panel-button { color: #ff00ff; border-color: #ff00ff; }
+        .official-updates-button { color: #00ff7f; border-color: #00ff7f; margin-bottom: 1rem; }
+        .comment-section-button { color: #ffdd57; border-color: #ffdd57; margin-bottom: 1rem; }
+        .admin-action-button { color: #00ffff; border-color: #00ffff; margin-top: 10px; }
+        #adminControls { display: none; width:100%; }
+        #logoutBtn { background: #ff3333; color: #fff; border: none; cursor: pointer; padding: 8px 12px; font-size: 0.8rem; border-radius: 5px; }
         
-        /* Star Rating Styles START */
+        /* TEAM SECTION STYLES */
+        /* Removed neon glow */
+        .team-title { color: #ff3333 !important; }
+        .team-list-box { background-color:#111; border-radius:10px; padding:1.2rem; border:1px dashed #555; font-size:1rem; width:100%; text-align:left; line-height:1.8; margin-top:1rem; box-sizing:border-box; }
+        /* Removed neon glow */
+        .team-list-box p { margin: 0.4rem 0; color: #ff3333; font-weight: 600; }
+        .team-list-box strong { color: #fff; }
+
+        /* General Styles */
         .star-rating-wrapper h2 { font-family: 'Orbitron', sans-serif; color: #00ff7f; margin-bottom: 0.5rem; }
         .stars { display: flex; justify-content: center; gap: 10px; font-size: 2.5rem; margin-bottom: 0.5rem; }
         .star { cursor: pointer; color: #555; transition: color 0.2s, transform 0.2s; }
         .star.selected, .star:hover, .star:hover ~ .star { color: #ffdd57; transform: scale(1.2); }
         .star-rating-wrapper.disabled .star { cursor: default; }
-        .star-rating-wrapper.disabled .star:hover, .star-rating-wrapper.disabled .star:hover ~ .star { color: #ffdd57; transform: none; }
         #rating-info { font-size: 0.9rem; color: #ccc; min-height: 20px; }
-        /* Star Rating Styles END */
-
-        .section-divider{width:100%;margin-top:2rem;border-top:2px solid #ff00ff;padding-top:2rem}
-        .section-divider h2{font-family:'Orbitron',sans-serif;color:#00ff7f;margin-bottom:0.5rem}
-        #comments-container{width:100%;text-align:left;margin-top:1rem;max-height:400px;overflow-y:auto;padding-right:10px}
-        .comment{background:#222;padding:1rem;border-radius:10px;margin-bottom:1rem;border-left:3px solid #00ff7f}
-        .comment p{margin:0;color:#fff;line-height:1.5;word-wrap:break-word}
-        .comment .comment-author{font-weight:600;color:#00ffff;margin-bottom:.3rem}
-        .comment-form{width:100%;margin-top:1rem}
-        .comment-form input,.comment-form textarea{width:100%;padding:10px;margin-bottom:10px;background:#111;border:1px solid #555;border-radius:8px;color:#fff;font-family:'Poppins',sans-serif;box-sizing:border-box}
-        .comment-form button{background:#00ff7f;color:#0d0d0d;border:none;padding:10px 15px;border-radius:8px;font-weight:600;cursor:pointer;float:right;transition:background-color .3s}
-        .comment-form button:hover{background-color:#00e06e}
         .bio-box{background-color:#111;border-radius:10px;padding:1.2rem;border:1px dashed #555;font-size:1rem;width:100%;text-align:left;line-height:1.6;margin-top:1rem;box-sizing:border-box}
         .bio-box p{margin:0;color:#ccc}
-        .ad-banner{position:fixed;bottom:0;left:0;width:100%;height:50px;background:#000;display:flex;justify-content:center;align-items:center;z-index:10000;border-top:1px solid #ff00ff;box-shadow:0 -2px 10px rgba(255,0,255,.2)}
-        @keyframes text-glow{from{text-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff}to{text-shadow:0 0 20px #ff00ff,0 0 30px #ff00ff}}
+        .contact-section h2 { cursor: pointer; }
+        #contact-info-container { display: none; flex-direction: column; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+        .contact-photo { width: 150px; height: 150px; border-radius: 50%; border: 3px solid #ff00ff; }
+        .ad-banner{position:fixed;bottom:0;left:0;width:100%;height:50px;background:#000;display:flex;justify-content:center;align-items:center;z-index:10000;border-top:1px solid #ff00ff;}
+        
+        /* Animations */
+        @keyframes text-glow{from{text-shadow:0 0 10px #ff00ff}to{text-shadow:0 0 20px #ff00ff}}
         @keyframes border-flicker{0%,100%{border-color:#00ffff}50%{border-color:#ff00ff}}
         @keyframes pulse{0%{transform:scale(1);opacity:.7}50%{transform:scale(1.05);opacity:1}100%{transform:scale(1);opacity:.7}}
         @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
     </style>
 </head>
 <body>
+    <!-- MODALS -->
+    <div id="keyModal" class="modal">
+        <div class="modal-content"><span class="close-modal">&times;</span><h2>Admin Access 🔑 </h2><p>Enter Key Code 🔑 </p><input type="password" id="secretKeyInput"><button id="submitKeyBtn">Enter</button></div>
+    </div>
+    <div id="nameModal" class="modal">
+        <div class="modal-content"><h2>Admin Name</h2><p>Enter your name. This will be saved permanently.</p><input type="text" id="firstNameInput" placeholder="First Name"><input type="text" id="lastNameInput" placeholder="Last Name"><button id="saveNameBtn">Save Name</button></div>
+    </div>
+    <div id="teamModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Team List</h2>
+            <div class="modal-body" id="teamEditorBody"></div>
+            <button id="saveTeamBtn">Save Team List</button>
+        </div>
+    </div>
+
     <div class="donation-container">
         <div class="reveal-cover" id="revealCover">
             <div id="revealClickableArea">
@@ -92,34 +164,73 @@
                 <p class="note"><strong>Note:</strong> यो नम्बर Parent को हो, त्यसैले कल नगर्दिनु होला।</p>
             </div>
 
-            <!-- Star Rating Section START -->
             <div class="section-divider star-rating-wrapper" id="starRatingWrapper">
                 <h2>Rate Our Club</h2>
                 <div class="stars" id="starsContainer">
-                    <span class="star" data-value="1">&#9733;</span>
-                    <span class="star" data-value="2">&#9733;</span>
-                    <span class="star" data-value="3">&#9733;</span>
-                    <span class="star" data-value="4">&#9733;</span>
-                    <span class="star" data-value="5">&#9733;</span>
+                    <span class="star" data-value="1">&#9733;</span><span class="star" data-value="2">&#9733;</span><span class="star" data-value="3">&#9733;</span><span class="star" data-value="4">&#9733;</span><span class="star" data-value="5">&#9733;</span>
                 </div>
                 <div id="rating-info">Loading rating...</div>
             </div>
-            <!-- Star Rating Section END -->
 
             <div class="section-divider">
-                <h2>Supporter Comments</h2>
-                <div id="comments-container"><p>Loading comments...</p></div>
-                <div class="comment-form" id="commentForm">
-                    <input type="text" id="commentAuthor" placeholder="Your Name" required>
-                    <textarea id="commentText" placeholder="Write a message..." rows="3" required></textarea>
-                    <button onclick="postComment()">Post Comment</button>
+                <div id="toggleCommentsBtn" class="comment-section-button">
+                    <span>💬</span>
+                    <span id="toggleCommentsText">Click to Show Comments</span>
                 </div>
-                 <div id="commentThankYou" style="display: none; text-align: center; color: #00ff7f; margin-top: 1rem;">Thank you for your valuable comment!</div>
+                <div id="comment-section-body">
+                    <div id="comments-container"><p>Loading comments...</p></div>
+                    <div class="comment-form" id="commentForm">
+                        <input type="text" id="commentAuthor" placeholder="Your Name" required>
+                        <textarea id="commentText" placeholder="Write a message..." rows="3" required></textarea>
+                        <button id="postCommentBtn">Post Comment</button>
+                    </div>
+                    <div id="commentThankYou" style="display: none; text-align: center; color: #00ff7f; margin-top: 1rem;">Thank you for your valuable comment!</div>
+                </div>
             </div>
             
+            <div class="section-divider contact-section">
+                <h2 id="revealContactBtn">बढी रकम हालेमा सम्पर्क गर्नुहोला &#9662;</h2>
+                <div id="contact-info-container">
+                    <a href="https://www.facebook.com/sangam.yogee.643197" target="_blank"><img src="https://i.ibb.co/nqyNM6PQ/Screenshot-20250812-185845-Lite.jpg" alt="Contact Person Photo" class="contact-photo"></a>
+                    <div class="bio-box"><p class="contact-bio">यदि तपाईहरुले चाहेको भन्दा बढी गल्तीले रकम हाल्नु भएको छ भने यो ID को फोटोमा क्लिक गरेर जानु सक्नु हुन्छ।</p></div>
+                </div>
+            </div>
+
+            <!-- ADMIN FEATURES -->
+            <div class="section-divider" id="officialUpdatesSection">
+                <div id="toggleUpdatesBtn" class="official-updates-button">
+                    <span>📰</span>
+                    <span id="toggleUpdatesText">Click to Show Updates</span>
+                </div>
+                <div id="updates-section-body">
+                    <div id="postsContainer"><p>No official updates yet.</p></div>
+                </div>
+            </div>
+            
+            <div class="section-divider" id="adminPanelButtonSection">
+                <button class="admin-panel-button" id="openAdminPanelBtn"><span>&#128221;</span> Admin Panel</button>
+            </div>
+
+            <div class="section-divider" id="adminControls">
+                <div style="display: flex; justify-content: space-between; align-items: center;"><h2>Admin Controls</h2><button id="logoutBtn">Logout</button></div>
+                <div class="comment-form">
+                    <input type="text" id="postTitle" placeholder="Post Title" style="margin-bottom:10px">
+                    <input type="file" id="postMedia" accept="image/*,video/*" style="margin-bottom:10px; color:#ccc;">
+                    <textarea id="postCaption" placeholder="Caption..." rows="4" style="margin-bottom:10px"></textarea>
+                    <button id="postBtn" style="float:right;">Post Update</button>
+                </div>
+                <button id="editTeamBtn" class="admin-action-button">Edit Team List</button>
+            </div>
+
+            <!-- STATIC INFO SECTIONS -->
             <div class="section-divider">
                 <h2>Bio</h2>
                 <div class="bio-box"><p>Please support our brother, Our Future star. If you support, we will buy football training items. So support our team.</p></div>
+            </div>
+
+            <div class="section-divider">
+                <h2 class="team-title">Our Team</h2>
+                <div class="team-list-box" id="team-list-container"></div>
             </div>
         </div>
     </div>
@@ -129,142 +240,297 @@
         <script type="text/javascript" src="//www.highperformanceformat.com/f020b46982286803863935835b62a664/invoke.js"></script>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    
     <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyC-OqkRforg0qFE0OTY10JCskqCFhj7esc",
-            authDomain: "donation-79171.firebaseapp.com",
-            databaseURL: "https://donation-79171-default-rtdb.firebaseio.com",
-            projectId: "donation-79171",
-            storageBucket: "donation-79171.appspot.com",
-            messagingSenderId: "1009738156502",
-            appId: "1:1009738156502:web:f7521f041cb1223bbb7c77",
-            measurementId: "G-L9VTQHSQCZ"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-        const commentsRef = database.ref('comments');
-        const ratingsRef = database.ref('ratings');
+        // --- DOM Elements ---
+        const keyModal = document.getElementById('keyModal');
+        const nameModal = document.getElementById('nameModal');
+        const teamModal = document.getElementById('teamModal');
+        const adminControls = document.getElementById('adminControls');
+        const adminButtonSection = document.getElementById('adminPanelButtonSection');
+        const postsContainer = document.getElementById('postsContainer');
+        const secretKey = "SANGAM";
 
-        // Initial Setup on Page Load
-        document.addEventListener('DOMContentLoaded', () => {
-            handleCommentStatus();
-            handleRatingStatus();
-            loadAndDisplayAverageRating();
+        // --- Utility ---
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.appendChild(document.createTextNode(str || ''));
+            return div.innerHTML;
+        }
+
+        // --- Admin State ---
+        function checkAdminState() {
+            const isAdmin = sessionStorage.getItem('isAdminAuthenticated') === 'true';
+            adminButtonSection.style.display = isAdmin ? 'none' : 'block';
+            if (isAdmin) {
+                if (!localStorage.getItem('adminName')) {
+                    nameModal.style.display = 'flex';
+                    adminControls.style.display = 'none';
+                } else {
+                    nameModal.style.display = 'none';
+                    adminControls.style.display = 'block';
+                }
+            } else {
+                adminControls.style.display = 'none';
+                nameModal.style.display = 'none';
+            }
+            loadPosts(); 
             loadComments();
+        }
+
+        document.getElementById('openAdminPanelBtn').addEventListener('click', () => keyModal.style.display = 'flex');
+        keyModal.querySelector('.close-modal').addEventListener('click', () => keyModal.style.display = 'none');
+        teamModal.querySelector('.close-modal').addEventListener('click', () => teamModal.style.display = 'none');
+        
+        const handleLogin = () => {
+            if (document.getElementById('secretKeyInput').value === secretKey) {
+                sessionStorage.setItem('isAdminAuthenticated', 'true');
+                keyModal.style.display = 'none';
+                document.getElementById('secretKeyInput').value = '';
+                checkAdminState();
+            } else {
+                alert('Incorrect Key Code!');
+            }
+        };
+        document.getElementById('submitKeyBtn').addEventListener('click', handleLogin);
+        document.getElementById('secretKeyInput').addEventListener('keyup', e => e.key === 'Enter' && handleLogin());
+
+        document.getElementById('saveNameBtn').addEventListener('click', () => {
+            const firstName = document.getElementById('firstNameInput').value.trim();
+            const lastName = document.getElementById('lastNameInput').value.trim();
+            if (firstName && lastName) {
+                localStorage.setItem('adminName', `${firstName} ${lastName}`);
+                checkAdminState();
+            } else {
+                alert('Please enter both first and last name.');
+            }
         });
 
-        // --- Reveal Logic ---
-        document.getElementById('revealClickableArea').addEventListener('click', function() {
-            document.getElementById('revealCover').style.display = 'none';
-            document.getElementById('donationContent').style.display = 'flex';
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            sessionStorage.removeItem('isAdminAuthenticated');
+            checkAdminState();
+        });
+
+        // --- Team List Logic ---
+        const defaultTeam = [
+            { name: "Sangam Yogi", position: "GK" }, { name: "Aayush Shrestha", position: "CB" },
+            { name: "Pradip Rana", position: "CB" }, { name: "Bibek Shrestha", position: "RB" },
+            { name: "Sameer Shrestha", position: "LB" }, { name: "Suman Rana", position: "CM" },
+            { name: "Saugat Thapa", position: "CM" }, { name: "Aaditya Shrestha", position: "CAM" },
+            { name: "Bishes Shrestha", position: "RW" }, { name: "Saurav Khadka", position: "ST" },
+            { name: "Susan Bhujel", position: "LW" }
+        ];
+
+        function loadTeamList() {
+            const team = JSON.parse(localStorage.getItem('raitolFCTeam')) || defaultTeam;
+            const container = document.getElementById('team-list-container');
+            container.innerHTML = '';
+            team.forEach((player, index) => {
+                const playerElement = document.createElement('p');
+                playerElement.innerHTML = `<strong>Player ${index + 1}:</strong> ${escapeHTML(player.name)} - ${escapeHTML(player.position)}`;
+                container.appendChild(playerElement);
+            });
+        }
+
+        document.getElementById('editTeamBtn').addEventListener('click', () => {
+            const team = JSON.parse(localStorage.getItem('raitolFCTeam')) || defaultTeam;
+            const editorBody = document.getElementById('teamEditorBody');
+            editorBody.innerHTML = '';
+            team.forEach((player, index) => {
+                const playerNum = index + 1;
+                editorBody.innerHTML += `
+                    <div class="team-editor-grid">
+                        <label for="p${playerNum}_name">Player ${playerNum} Name</label>
+                        <label for="p${playerNum}_pos">Position</label>
+                        <input type="text" id="p${playerNum}_name" value="${escapeHTML(player.name)}">
+                        <input type="text" id="p${playerNum}_pos" value="${escapeHTML(player.position)}">
+                    </div>
+                    ${playerNum < 11 ? '<hr class="modal-divider">' : ''}
+                `;
+            });
+            teamModal.style.display = 'flex';
+        });
+
+        document.getElementById('saveTeamBtn').addEventListener('click', () => {
+            const newTeam = [];
+            for (let i = 1; i <= 11; i++) {
+                const name = document.getElementById(`p${i}_name`).value;
+                const position = document.getElementById(`p${i}_pos`).value;
+                newTeam.push({ name, position });
+            }
+            localStorage.setItem('raitolFCTeam', JSON.stringify(newTeam));
+            teamModal.style.display = 'none';
+            loadTeamList();
+            alert('Team list updated successfully!');
+        });
+        
+        // --- Admin Post & Like Logic ---
+        document.getElementById('postBtn').addEventListener('click', () => {
+            const title = document.getElementById('postTitle').value.trim();
+            const caption = document.getElementById('postCaption').value.trim();
+            const file = document.getElementById('postMedia').files[0];
+            const adminName = localStorage.getItem('adminName');
+            if (!title && !caption && !file) { alert('Cannot create an empty post.'); return; }
+            const postData = { id: Date.now(), title, caption, postedBy: adminName, mediaSrc: null, mediaType: null, likes: 0 };
+            const savePostAndRender = () => {
+                const posts = JSON.parse(localStorage.getItem('raitolFCPosts')) || [];
+                posts.push(postData);
+                localStorage.setItem('raitolFCPosts', JSON.stringify(posts));
+                loadPosts();
+                document.getElementById('postTitle').value = ''; document.getElementById('postCaption').value = ''; document.getElementById('postMedia').value = '';
+            };
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    postData.mediaSrc = e.target.result; postData.mediaType = file.type.startsWith('image/') ? 'image' : 'video';
+                    savePostAndRender();
+                };
+                reader.readAsDataURL(file);
+            } else { savePostAndRender(); }
+        });
+
+        function loadPosts() {
+            const posts = JSON.parse(localStorage.getItem('raitolFCPosts')) || [];
+            const currentAdmin = localStorage.getItem('adminName');
+            const loggedInAdmin = sessionStorage.getItem('isAdminAuthenticated') === 'true';
+            const likedPosts = JSON.parse(localStorage.getItem('raitolFCLikedPosts')) || [];
+            postsContainer.innerHTML = posts.length === 0 ? '<p>No official updates yet.</p>' : '';
+            posts.slice().reverse().forEach(post => {
+                const postElement = document.createElement('div'); postElement.className = 'admin-post';
+                let mediaContent = '';
+                if (post.mediaSrc) { mediaContent = post.mediaType === 'image' ? `<img src="${post.mediaSrc}" class="admin-post-media">` : `<video controls src="${post.mediaSrc}" class="admin-post-media"></video>`; }
+                const deleteButton = (loggedInAdmin && currentAdmin === post.postedBy) ? `<button class="delete-post-btn" onclick="deletePost(${post.id})">Delete</button>` : '';
+                const isLiked = likedPosts.includes(post.id);
+                const likeButtonClass = isLiked ? 'like-btn liked' : 'like-btn';
+                postElement.innerHTML = `
+                    ${deleteButton}
+                    ${post.title ? `<h3 class="admin-post-title">${escapeHTML(post.title)}</h3>` : ''}
+                    ${mediaContent}
+                    ${post.caption ? `<p class="admin-post-caption">${escapeHTML(post.caption)}</p>` : ''}
+                    <div class="post-actions"> <span class="${likeButtonClass}" onclick="likePost(${post.id})">❤️</span> <span class="like-count">${post.likes || 0}</span> </div>
+                    <p class="admin-post-by">Posted by: ${escapeHTML(post.postedBy)}</p>
+                `;
+                postsContainer.appendChild(postElement);
+            });
+        }
+        
+        window.likePost = (postId) => {
+            let likedPosts = JSON.parse(localStorage.getItem('raitolFCLikedPosts')) || [];
+            if (likedPosts.includes(postId)) return;
+            likedPosts.push(postId); localStorage.setItem('raitolFCLikedPosts', JSON.stringify(likedPosts));
+            let posts = JSON.parse(localStorage.getItem('raitolFCPosts')) || [];
+            const postIndex = posts.findIndex(p => p.id === postId);
+            if (postIndex > -1) { posts[postIndex].likes = (posts[postIndex].likes || 0) + 1; localStorage.setItem('raitolFCPosts', JSON.stringify(posts)); }
+            loadPosts();
+        };
+
+        window.deletePost = (postId) => {
+            if (!confirm('Are you sure you want to permanently delete this post?')) return;
+            let posts = JSON.parse(localStorage.getItem('raitolFCPosts')) || [];
+            posts = posts.filter(post => post.id !== postId); localStorage.setItem('raitolFCPosts', JSON.stringify(posts));
+            loadPosts();
+        };
+        
+        // --- UI Toggles ---
+        document.getElementById('toggleUpdatesBtn').addEventListener('click', () => {
+            const body = document.getElementById('updates-section-body');
+            const text = document.getElementById('toggleUpdatesText');
+            const isHidden = body.style.display === 'none' || body.style.display === '';
+            body.style.display = isHidden ? 'block' : 'none';
+            text.textContent = isHidden ? 'Hide Updates' : 'Click to Show Updates';
+        });
+
+        document.getElementById('toggleCommentsBtn').addEventListener('click', () => {
+            const body = document.getElementById('comment-section-body');
+            const text = document.getElementById('toggleCommentsText');
+            const isHidden = body.style.display === 'none' || body.style.display === '';
+            body.style.display = isHidden ? 'block' : 'none';
+            text.textContent = isHidden ? 'Hide Comments' : 'Click to Show Comments';
         });
 
         // --- Comment Logic ---
-        function handleCommentStatus() {
-            if (localStorage.getItem('raitolFCCommented') === 'true') {
-                disableCommenting();
-            }
-        }
-        function disableCommenting() {
-            document.getElementById('commentForm').style.display = 'none';
-            document.getElementById('commentThankYou').style.display = 'block';
-        }
-        function postComment() {
-            const authorInput = document.getElementById('commentAuthor');
-            const textInput = document.getElementById('commentText');
-            if (!authorInput.value.trim() || !textInput.value.trim()) {
-                alert('Please enter your name and a comment.');
-                return;
-            }
-            commentsRef.push({
-                author: authorInput.value,
-                text: textInput.value,
-                timestamp: -Date.now()
-            });
+        function handleCommentStatus() { if (localStorage.getItem('raitolFCCommented') === 'true') { disableCommenting(); } }
+        function disableCommenting() { document.getElementById('commentForm').style.display = 'none'; document.getElementById('commentThankYou').style.display = 'block'; }
+
+        document.getElementById('postCommentBtn').addEventListener('click', () => {
+            const author = document.getElementById('commentAuthor').value.trim();
+            const text = document.getElementById('commentText').value.trim();
+            if (!author || !text) { alert('Please enter your name and a comment.'); return; }
+            const comments = JSON.parse(localStorage.getItem('raitolFCComments')) || [];
+            comments.push({ id: Date.now(), author, text }); localStorage.setItem('raitolFCComments', JSON.stringify(comments));
             localStorage.setItem('raitolFCCommented', 'true');
-            disableCommenting();
-            authorInput.value = ''; textInput.value = '';
-        }
+            loadComments(); disableCommenting();
+        });
+
         function loadComments() {
             const commentsContainer = document.getElementById('comments-container');
-            commentsRef.orderByChild('timestamp').on('value', (snapshot) => {
-                commentsContainer.innerHTML = '';
-                if (!snapshot.exists()) {
-                    commentsContainer.innerHTML = '<p>Be the first to comment!</p>';
-                    return;
-                }
-                snapshot.forEach((childSnapshot) => {
-                    const comment = childSnapshot.val();
-                    const commentElement = document.createElement('div');
-                    commentElement.className = 'comment';
-                    commentElement.innerHTML = `<div class="comment-author">${comment.author}</div><p>${comment.text}</p>`;
-                    commentsContainer.prepend(commentElement);
-                });
+            const comments = JSON.parse(localStorage.getItem('raitolFCComments')) || [];
+            const isAdmin = sessionStorage.getItem('isAdminAuthenticated') === 'true';
+            commentsContainer.innerHTML = comments.length === 0 ? '<p>Be the first to comment!</p>' : '';
+            [...comments].reverse().forEach(comment => {
+                const el = document.createElement('div'); el.className = 'comment';
+                const deleteButton = isAdmin ? `<button class="delete-comment-btn" onclick="deleteComment(${comment.id})">Delete</button>` : '';
+                el.innerHTML = ` ${deleteButton} <div class="comment-author">${escapeHTML(comment.author)}</div> <p>${escapeHTML(comment.text)}</p> `;
+                commentsContainer.append(el);
             });
         }
-
-        // --- Star Rating Logic ---
-        const stars = document.querySelectorAll('.star');
-        const ratingInfo = document.getElementById('rating-info');
-        const starWrapper = document.getElementById('starRatingWrapper');
-        let currentRating = 0;
         
+        window.deleteComment = (commentId) => {
+            if (!confirm('Are you sure you want to delete this comment?')) return;
+            let comments = JSON.parse(localStorage.getItem('raitolFCComments')) || [];
+            comments = comments.filter(c => c.id !== commentId); localStorage.setItem('raitolFCComments', JSON.stringify(comments));
+            loadComments();
+        };
+        
+        // --- Page Logic ---
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAdminState(); loadTeamList(); loadAndDisplayAverageRating(); handleCommentStatus(); handleRatingStatus();
+        });
+
+        document.getElementById('revealClickableArea').addEventListener('click', () => {
+            document.getElementById('revealCover').style.display = 'none'; document.getElementById('donationContent').style.display = 'flex';
+        });
+
+        document.getElementById('revealContactBtn').addEventListener('click', function() {
+            const contactContainer = document.getElementById('contact-info-container');
+            const isDisplayed = contactContainer.style.display === 'flex';
+            this.innerHTML = isDisplayed ? 'बढी रकम हालेमा सम्पर्क गर्नुहोला &#9662;' : 'बढी रकम हालेमा सम्पर्क गर्नुहोला &#9652;';
+            contactContainer.style.display = isDisplayed ? 'none' : 'flex';
+        });
+
+        // --- Rating Logic ---
         function handleRatingStatus() {
             if (localStorage.getItem('raitolFCRated') === 'true') {
-                disableRating();
-                ratingInfo.textContent = 'Thank you for your rating!';
+                disableRating(); document.getElementById('rating-info').textContent = 'Thank you for your rating!';
             } else {
-                addStarEventListeners();
+                document.querySelectorAll('.star').forEach(star => star.addEventListener('click', handleStarClick));
             }
         }
-        function addStarEventListeners() {
-            stars.forEach(star => {
-                star.addEventListener('click', handleStarClick);
-                star.addEventListener('mouseover', handleStarHover);
-            });
-            document.getElementById('starsContainer').addEventListener('mouseout', handleMouseOut);
-        }
+        
         function handleStarClick(e) {
-            currentRating = parseInt(e.target.dataset.value);
-            ratingsRef.push({ rating: currentRating });
+            const rating = parseInt(e.target.dataset.value, 10);
+            let ratings = JSON.parse(localStorage.getItem('raitolFCRatings')) || [];
+            ratings.push(rating); localStorage.setItem('raitolFCRatings', JSON.stringify(ratings));
             localStorage.setItem('raitolFCRated', 'true');
-            ratingInfo.textContent = `You rated ${currentRating} stars. Thank you!`;
+            document.getElementById('rating-info').textContent = `You rated ${rating} stars. Thank you!`;
             disableRating();
         }
-        function handleStarHover(e) {
-            const hoverValue = parseInt(e.target.dataset.value);
-            stars.forEach(star => star.classList.toggle('selected', parseInt(star.dataset.value) <= hoverValue));
-        }
-        function handleMouseOut() {
-            stars.forEach(star => star.classList.toggle('selected', parseInt(star.dataset.value) <= currentRating));
-        }
+
         function disableRating() {
-            starWrapper.classList.add('disabled');
-            stars.forEach(star => {
-                star.removeEventListener('click', handleStarClick);
-                star.removeEventListener('mouseover', handleStarHover);
+            document.getElementById('starRatingWrapper').classList.add('disabled');
+            document.querySelectorAll('.star').forEach(star => {
+                star.removeEventListener('click', handleStarClick); star.style.cursor = 'default';
             });
         }
+        
         function loadAndDisplayAverageRating() {
-            ratingsRef.on('value', (snapshot) => {
-                if (snapshot.exists()) {
-                    const ratings = snapshot.val();
-                    const ratingValues = Object.values(ratings).map(r => r.rating);
-                    const totalRatings = ratingValues.length;
-                    const sum = ratingValues.reduce((a, b) => a + b, 0);
-                    const average = (sum / totalRatings).toFixed(1);
-                    if (localStorage.getItem('raitolFCRated') !== 'true') {
-                         ratingInfo.textContent = `Average: ${average}/5 from ${totalRatings} ratings`;
-                    }
-                } else {
-                    if (localStorage.getItem('raitolFCRated') !== 'true') {
-                        ratingInfo.textContent = 'Be the first to rate!';
-                    }
-                }
-            });
+            if (localStorage.getItem('raitolFCRated') === 'true') return;
+            const ratings = JSON.parse(localStorage.getItem('raitolFCRatings')) || [];
+            if (ratings.length > 0) {
+                const avg = (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1);
+                document.getElementById('rating-info').textContent = `Average: ${avg}/5 from ${ratings.length} ratings`;
+            } else {
+                document.getElementById('rating-info').textContent = 'Be the first to rate!';
+            }
         }
     </script>
 </body>
