@@ -7,16 +7,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap');
         
-        body {
-            background-color: #0d0d0d; color: #e0e0e0; font-family: 'Poppins', sans-serif;
-            display: flex; justify-content: center; align-items: center; min-height: 100vh;
-            margin: 0; padding: 20px; box-sizing: border-box;
-            padding-bottom: 70px; 
-        }
+        body{background-color:#0d0d0d;color:#e0e0e0;font-family:'Poppins',sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;padding:20px;box-sizing:border-box;padding-bottom:70px}
         .donation-container{background:linear-gradient(145deg,#1a1a1a,#111);padding:2.5rem 2rem;border-radius:20px;text-align:center;width:100%;max-width:420px;border:3px solid #00ffff;box-shadow:0 0 15px #00ffff,0 0 30px #00ffff,inset 0 0 10px #00ffff;animation:border-flicker 4s linear infinite;display:flex;flex-direction:column;align-items:center}
         .reveal-cover{cursor:pointer;text-align:center;width:100%}
         .reveal-cover-main-img{width:150px;height:auto;margin-bottom:1.5rem;border-radius:10px}
-        .reveal-cover p{font-family: 'Orbitron', sans-serif; font-size:1.5rem;color:#fff;text-shadow:0 0 8px #fff;animation:pulse 2s infinite;margin-bottom:2rem}
+        .reveal-cover p{font-family:'Orbitron',sans-serif;font-size:1.5rem;color:#fff;text-shadow:0 0 8px #fff;animation:pulse 2s infinite;margin-bottom:2rem}
         .tiktok-follow{border-top:1px dashed #555;padding-top:1.5rem;display:flex;flex-direction:column;align-items:center;gap:1rem;cursor:default;width:100%}
         .tiktok-logo{width:40px;height:auto;filter:invert(1)}
         .tiktok-follow .follow-text{font-size:1.1rem;color:#ccc;margin:0;font-weight:600}
@@ -26,62 +21,44 @@
         .header{display:flex;justify-content:center;align-items:center;gap:15px;margin-bottom:.5rem}
         .header .logo{width:50px;height:50px;border-radius:50%}
         .header h1{font-family:'Orbitron',sans-serif;font-size:2.2rem;margin:0;color:#ff00ff;text-transform:uppercase;animation:text-glow 1.5s ease-in-out infinite alternate}
-        .subtitle{font-size:1rem;color:#ccc;text-shadow:0 0 5px #00ff7f;margin-bottom:1.5rem;font-weight:400; line-height: 1.5;}
-        
-        /* New Animated Logo Style */
-        .main-image-wrapper {
-            margin-bottom: 2rem;
-        }
-        .football-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%; /* गोलो बनाउने */
-            animation: spin 10s linear infinite; /* घुम्ने एनिमेसन */
-        }
-        
-        .merchant-details{background-color:#111;border-radius:10px;padding:1.2rem;border:1px dashed #555;font-size:1rem;width:100%;text-align:left;line-height:1.7}
+        .subtitle{font-size:1rem;color:#ccc;text-shadow:0 0 5px #00ff7f;margin-bottom:1.5rem;font-weight:400;line-height:1.5}
+        .main-image-wrapper{margin-bottom:2rem}
+        .football-image{width:150px;height:150px;border-radius:50%;animation:spin 10s linear infinite}
+        .merchant-details{background-color:#111;border-radius:10px;padding:1.2rem;border:1px dashed #555;font-size:1rem;width:100%;text-align:left;line-height:1.7; margin-bottom: 1.5rem;}
         .merchant-details p{margin:.5rem 0;color:#ccc}
         .merchant-details strong{color:#00ffff;font-weight:600}
-        .merchant-details .note { color: #ff5555; font-weight: 600; font-size: 0.9rem; }
-        .payment-options { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 1.5rem; }
-        .inr-payment-btn {background-color: transparent; border: 2px solid #ff00ff; color: #ff00ff; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;}
-        .inr-payment-btn:hover { background-color: #ff00ff; color: #fff; }
-        #inrQrWrapper {display: none; margin-top: 1.5rem; padding: 10px; background-color: #fff; border-radius: 15px;}
-        #inrQrWrapper img { width: 280px; border-radius: 10px; }
-        .download-btn {display: inline-block; margin-top: 0.8rem; background-color: #00ffff; color: #0d0d0d; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;}
-        .download-btn:hover { transform: scale(1.05); }
-
-        .esewa-header {display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px dashed #444;}
-        .esewa-logo {width: 40px; height: auto; border-radius: 5px;}
-        .esewa-title {font-family: 'Orbitron', sans-serif; color: #60c560; font-size: 1.2rem; margin: 0; text-shadow: 0 0 5px #60c560;}
+        .merchant-details .note{color:#ff5555;font-weight:600;font-size:.9rem}
+        .esewa-header{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px dashed #444}
+        .esewa-logo{width:40px;height:auto;border-radius:5px}
+        .esewa-title{font-family:'Orbitron',sans-serif;color:#60c560;font-size:1.2rem;margin:0;text-shadow:0 0 5px #60c560}
+        
+        /* Star Rating Styles START */
+        .star-rating-wrapper h2 { font-family: 'Orbitron', sans-serif; color: #00ff7f; margin-bottom: 0.5rem; }
+        .stars { display: flex; justify-content: center; gap: 10px; font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .star { cursor: pointer; color: #555; transition: color 0.2s, transform 0.2s; }
+        .star.selected, .star:hover, .star:hover ~ .star { color: #ffdd57; transform: scale(1.2); }
+        .star-rating-wrapper.disabled .star { cursor: default; }
+        .star-rating-wrapper.disabled .star:hover, .star-rating-wrapper.disabled .star:hover ~ .star { color: #ffdd57; transform: none; }
+        #rating-info { font-size: 0.9rem; color: #ccc; min-height: 20px; }
+        /* Star Rating Styles END */
 
         .section-divider{width:100%;margin-top:2rem;border-top:2px solid #ff00ff;padding-top:2rem}
         .section-divider h2{font-family:'Orbitron',sans-serif;color:#00ff7f;margin-bottom:0.5rem}
-        #comments-container{width:100%;text-align:left;margin-top:1rem;max-height: 400px; overflow-y: auto; padding-right: 10px;}
+        #comments-container{width:100%;text-align:left;margin-top:1rem;max-height:400px;overflow-y:auto;padding-right:10px}
         .comment{background:#222;padding:1rem;border-radius:10px;margin-bottom:1rem;border-left:3px solid #00ff7f}
-        .comment p{margin:0;color:#fff;line-height:1.5; word-wrap: break-word;}
-        .comment .comment-author{font-weight:600;color:#00ffff;margin-bottom:0.3rem}
-        .comment-form{width: 100%; margin-top: 1rem;}
-        .comment-form input,.comment-form textarea{width:100%;padding:10px;margin-bottom:10px;background:#111;border:1px solid #555;border-radius:8px;color:#fff;font-family:'Poppins',sans-serif;box-sizing: border-box;}
-        .comment-form button{background:#00ff7f;color:#0d0d0d;border:none;padding:10px 15px;border-radius:8px;font-weight:600;cursor:pointer;float:right; transition: background-color 0.3s;}
-        .comment-form button:hover { background-color: #00e06e; }
-        .bio-box {background-color: #111; border-radius: 10px; padding: 1.2rem; border: 1px dashed #555; font-size: 1rem; width: 100%; text-align: left; line-height: 1.6; margin-top: 1rem; box-sizing: border-box;}
-        .bio-box p { margin: 0; color: #ccc; }
-        
-        .ad-banner {
-            position: fixed; bottom: 0; left: 0; width: 100%; height: 50px;
-            background: #000; display: flex; justify-content: center; align-items: center;
-            z-index: 10000; border-top: 1px solid #ff00ff; box-shadow: 0 -2px 10px rgba(255, 0, 255, 0.2);
-        }
-
+        .comment p{margin:0;color:#fff;line-height:1.5;word-wrap:break-word}
+        .comment .comment-author{font-weight:600;color:#00ffff;margin-bottom:.3rem}
+        .comment-form{width:100%;margin-top:1rem}
+        .comment-form input,.comment-form textarea{width:100%;padding:10px;margin-bottom:10px;background:#111;border:1px solid #555;border-radius:8px;color:#fff;font-family:'Poppins',sans-serif;box-sizing:border-box}
+        .comment-form button{background:#00ff7f;color:#0d0d0d;border:none;padding:10px 15px;border-radius:8px;font-weight:600;cursor:pointer;float:right;transition:background-color .3s}
+        .comment-form button:hover{background-color:#00e06e}
+        .bio-box{background-color:#111;border-radius:10px;padding:1.2rem;border:1px dashed #555;font-size:1rem;width:100%;text-align:left;line-height:1.6;margin-top:1rem;box-sizing:border-box}
+        .bio-box p{margin:0;color:#ccc}
+        .ad-banner{position:fixed;bottom:0;left:0;width:100%;height:50px;background:#000;display:flex;justify-content:center;align-items:center;z-index:10000;border-top:1px solid #ff00ff;box-shadow:0 -2px 10px rgba(255,0,255,.2)}
         @keyframes text-glow{from{text-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff}to{text-shadow:0 0 20px #ff00ff,0 0 30px #ff00ff}}
         @keyframes border-flicker{0%,100%{border-color:#00ffff}50%{border-color:#ff00ff}}
         @keyframes pulse{0%{transform:scale(1);opacity:.7}50%{transform:scale(1.05);opacity:1}100%{transform:scale(1);opacity:.7}}
-        /* नयाँ लोगोको लागि Spin Animation */
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
     </style>
 </head>
 <body>
@@ -106,140 +83,189 @@
             </div>
             <p class="subtitle">Donation for Our Goals! <br>यो Esewa नम्बरमा कल गर्ने काम नगर्दिनु होला किनकी यो हाम्रो Parents को नम्बर हो।</p>
             
-            <div class="main-image-wrapper">
-                <!-- नयाँ लोगो यहाँ राखिएको छ -->
-                <img src="https://i.ibb.co/PvCgHHp6/IMG-20250807-WA0015.jpg" alt="Raitol FC Main Logo" class="football-image">
-            </div>
+            <div class="main-image-wrapper"><img src="https://i.ibb.co/PvCgHHp6/IMG-20250807-WA0015.jpg" alt="Raitol FC Main Logo" class="football-image"></div>
             
             <div class="merchant-details">
-                <div class="esewa-header">
-                    <!-- नयाँ eSewa लोगो यहाँ राखिएको छ -->
-                    <img src="https://i.ibb.co/5hdhmm8M/images.jpg" alt="eSewa Logo" class="esewa-logo">
-                    <h3 class="esewa-title">Donate from eSewa</h3>
-                </div>
+                <div class="esewa-header"><img src="https://i.ibb.co/5hdhmm8M/images.jpg" alt="eSewa Logo" class="esewa-logo"><h3 class="esewa-title">Donate from eSewa</h3></div>
                 <p><strong>Esewa Name:</strong> Kusum Regmi Bhujel</p>
-                <p><strong>Esewa (NPR):</strong>9708281014</p>
+                <p><strong>Esewa (NPR):</strong> 9708281014</p>
                 <p class="note"><strong>Note:</strong> यो नम्बर Parent को हो, त्यसैले कल नगर्दिनु होला।</p>
             </div>
-            
-            <div class="payment-options">
-                <button id="toggleInrQrBtn" class="inr-payment-btn">Pay from INR</button>
-                <div id="inrQrWrapper">
-                    <img src="https://i.ibb.co/LXXKXD58/1754405109938.jpg" alt="INR Payment QR Code">
-                    <a href="https://i.ibb.co/LXXKXD58/1754405109938.jpg" class="download-btn" download="Raitol_FC_INR_QR.jpg">Download INR QR</a>
+
+            <!-- Star Rating Section START -->
+            <div class="section-divider star-rating-wrapper" id="starRatingWrapper">
+                <h2>Rate Our Club</h2>
+                <div class="stars" id="starsContainer">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
                 </div>
+                <div id="rating-info">Loading rating...</div>
             </div>
+            <!-- Star Rating Section END -->
 
             <div class="section-divider">
                 <h2>Supporter Comments</h2>
                 <div id="comments-container"><p>Loading comments...</p></div>
-                <div class="comment-form">
+                <div class="comment-form" id="commentForm">
                     <input type="text" id="commentAuthor" placeholder="Your Name" required>
                     <textarea id="commentText" placeholder="Write a message..." rows="3" required></textarea>
                     <button onclick="postComment()">Post Comment</button>
                 </div>
+                 <div id="commentThankYou" style="display: none; text-align: center; color: #00ff7f; margin-top: 1rem;">Thank you for your valuable comment!</div>
             </div>
             
             <div class="section-divider">
                 <h2>Bio</h2>
-                <div class="bio-box">
-                    <p>Please support our brother, Our Future star. If you support, we will buy football training items. So support our team.</p>
-                </div>
+                <div class="bio-box"><p>Please support our brother, Our Future star. If you support, we will buy football training items. So support our team.</p></div>
             </div>
         </div>
     </div>
     
-    <!-- Ad Banner Section START -->
     <div class="ad-banner">
-        <script type="text/javascript">
-            atOptions = {
-                'key' : 'f020b46982286803863935835b62a664',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-            };
-        </script>
+        <script type="text/javascript">atOptions = {'key' : 'f020b46982286803863935835b62a664','format' : 'iframe','height' : 50,'width' : 320,'params' : {}};</script>
         <script type="text/javascript" src="//www.highperformanceformat.com/f020b46982286803863935835b62a664/invoke.js"></script>
     </div>
-    <!-- Ad Banner Section END -->
 
-    <!-- Firebase SDK Scripts -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     
     <script>
-        // =========================================================================
-        // तपाइँले Firebase बाट प्रतिलिपि (Copy) गर्नुभएको firebaseConfig कोड यहाँ राख्नुहोस्
         const firebaseConfig = {
-  apiKey: "AIzaSyC-OqkRforg0qFE0OTY10JCskqCFhj7esc",
-  authDomain: "donation-79171.firebaseapp.com",
-  databaseURL: "https://donation-79171-default-rtdb.firebaseio.com",
-  projectId: "donation-79171",
-  storageBucket: "donation-79171.firebasestorage.app",
-  messagingSenderId: "1009738156502",
-  appId: "1:1009738156502:web:f7521f041cb1223bbb7c77",
-  measurementId: "G-L9VTQHSQCZ"
-};
-        // =========================================================================
-
+            apiKey: "AIzaSyC-OqkRforg0qFE0OTY10JCskqCFhj7esc",
+            authDomain: "donation-79171.firebaseapp.com",
+            databaseURL: "https://donation-79171-default-rtdb.firebaseio.com",
+            projectId: "donation-79171",
+            storageBucket: "donation-79171.appspot.com",
+            messagingSenderId: "1009738156502",
+            appId: "1:1009738156502:web:f7521f041cb1223bbb7c77",
+            measurementId: "G-L9VTQHSQCZ"
+        };
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
         const commentsRef = database.ref('comments');
+        const ratingsRef = database.ref('ratings');
 
+        // Initial Setup on Page Load
+        document.addEventListener('DOMContentLoaded', () => {
+            handleCommentStatus();
+            handleRatingStatus();
+            loadAndDisplayAverageRating();
+            loadComments();
+        });
+
+        // --- Reveal Logic ---
         document.getElementById('revealClickableArea').addEventListener('click', function() {
             document.getElementById('revealCover').style.display = 'none';
             document.getElementById('donationContent').style.display = 'flex';
         });
 
-        const toggleBtn = document.getElementById('toggleInrQrBtn');
-        const inrWrapper = document.getElementById('inrQrWrapper');
-        toggleBtn.addEventListener('click', () => {
-            if (inrWrapper.style.display === 'block') {
-                inrWrapper.style.display = 'none';
-                toggleBtn.textContent = 'Pay from INR';
-            } else {
-                inrWrapper.style.display = 'block';
-                toggleBtn.textContent = 'Hide INR QR';
+        // --- Comment Logic ---
+        function handleCommentStatus() {
+            if (localStorage.getItem('raitolFCCommented') === 'true') {
+                disableCommenting();
             }
-        });
-
-        const commentsContainer = document.getElementById('comments-container');
-        commentsRef.orderByChild('timestamp').on('child_added', (snapshot) => {
-            if (commentsContainer.innerHTML.includes('Loading')) {
-                commentsContainer.innerHTML = '';
-            }
-            const comment = snapshot.val();
-            const commentElement = document.createElement('div');
-            commentElement.className = 'comment';
-            const author = document.createElement('div');
-            author.className = 'comment-author';
-            author.textContent = comment.author;
-            const text = document.createElement('p');
-            text.textContent = comment.text;
-            commentElement.appendChild(author);
-            commentElement.appendChild(text);
-            commentsContainer.prepend(commentElement);
-        });
-
+        }
+        function disableCommenting() {
+            document.getElementById('commentForm').style.display = 'none';
+            document.getElementById('commentThankYou').style.display = 'block';
+        }
         function postComment() {
             const authorInput = document.getElementById('commentAuthor');
             const textInput = document.getElementById('commentText');
-            const author = authorInput.value;
-            const text = textInput.value;
-            if (!author.trim() || !text.trim()) {
+            if (!authorInput.value.trim() || !textInput.value.trim()) {
                 alert('Please enter your name and a comment.');
                 return;
             }
             commentsRef.push({
-                author: author,
-                text: text,
+                author: authorInput.value,
+                text: textInput.value,
                 timestamp: -Date.now()
             });
-            authorInput.value = '';
-            textInput.value = '';
+            localStorage.setItem('raitolFCCommented', 'true');
+            disableCommenting();
+            authorInput.value = ''; textInput.value = '';
+        }
+        function loadComments() {
+            const commentsContainer = document.getElementById('comments-container');
+            commentsRef.orderByChild('timestamp').on('value', (snapshot) => {
+                commentsContainer.innerHTML = '';
+                if (!snapshot.exists()) {
+                    commentsContainer.innerHTML = '<p>Be the first to comment!</p>';
+                    return;
+                }
+                snapshot.forEach((childSnapshot) => {
+                    const comment = childSnapshot.val();
+                    const commentElement = document.createElement('div');
+                    commentElement.className = 'comment';
+                    commentElement.innerHTML = `<div class="comment-author">${comment.author}</div><p>${comment.text}</p>`;
+                    commentsContainer.prepend(commentElement);
+                });
+            });
+        }
+
+        // --- Star Rating Logic ---
+        const stars = document.querySelectorAll('.star');
+        const ratingInfo = document.getElementById('rating-info');
+        const starWrapper = document.getElementById('starRatingWrapper');
+        let currentRating = 0;
+        
+        function handleRatingStatus() {
+            if (localStorage.getItem('raitolFCRated') === 'true') {
+                disableRating();
+                ratingInfo.textContent = 'Thank you for your rating!';
+            } else {
+                addStarEventListeners();
+            }
+        }
+        function addStarEventListeners() {
+            stars.forEach(star => {
+                star.addEventListener('click', handleStarClick);
+                star.addEventListener('mouseover', handleStarHover);
+            });
+            document.getElementById('starsContainer').addEventListener('mouseout', handleMouseOut);
+        }
+        function handleStarClick(e) {
+            currentRating = parseInt(e.target.dataset.value);
+            ratingsRef.push({ rating: currentRating });
+            localStorage.setItem('raitolFCRated', 'true');
+            ratingInfo.textContent = `You rated ${currentRating} stars. Thank you!`;
+            disableRating();
+        }
+        function handleStarHover(e) {
+            const hoverValue = parseInt(e.target.dataset.value);
+            stars.forEach(star => star.classList.toggle('selected', parseInt(star.dataset.value) <= hoverValue));
+        }
+        function handleMouseOut() {
+            stars.forEach(star => star.classList.toggle('selected', parseInt(star.dataset.value) <= currentRating));
+        }
+        function disableRating() {
+            starWrapper.classList.add('disabled');
+            stars.forEach(star => {
+                star.removeEventListener('click', handleStarClick);
+                star.removeEventListener('mouseover', handleStarHover);
+            });
+        }
+        function loadAndDisplayAverageRating() {
+            ratingsRef.on('value', (snapshot) => {
+                if (snapshot.exists()) {
+                    const ratings = snapshot.val();
+                    const ratingValues = Object.values(ratings).map(r => r.rating);
+                    const totalRatings = ratingValues.length;
+                    const sum = ratingValues.reduce((a, b) => a + b, 0);
+                    const average = (sum / totalRatings).toFixed(1);
+                    if (localStorage.getItem('raitolFCRated') !== 'true') {
+                         ratingInfo.textContent = `Average: ${average}/5 from ${totalRatings} ratings`;
+                    }
+                } else {
+                    if (localStorage.getItem('raitolFCRated') !== 'true') {
+                        ratingInfo.textContent = 'Be the first to rate!';
+                    }
+                }
+            });
         }
     </script>
 </body>
-
 </html>
